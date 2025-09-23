@@ -1,0 +1,16 @@
+# Node
+node_modules/
+*.log
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.env
+
+# Build
+frontend/dist/
+frontend/.vite/
+
+# OS
+.DS_Store
