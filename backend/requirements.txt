@@ -3,4 +3,6 @@ Flask-Cors==4.0.0
 flask-jwt-extended==4.6.0
 pymongo==4.6.3
 python-dotenv==1.0.1
+# Required for mongodb+srv URI support
+dnspython==2.6.1
 Werkzeug==3.0.3

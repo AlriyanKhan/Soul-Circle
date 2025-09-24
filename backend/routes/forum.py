@@ -7,7 +7,8 @@ from utils.moderation import contains_self_harm_risk
 forum_bp = Blueprint("forum", __name__)
 
 
-def post_dto(p):n    return {
+def post_dto(p):
+    return {
         "id": str(p["_id"]),
         "title": p.get("title", ""),
         "content": p.get("content", ""),
@@ -18,7 +19,6 @@ def post_dto(p):n    return {
         "upvotes": p.get("upvotes", 0),
         "flagged": p.get("flagged", False)
     }
-
 
 @forum_bp.get("/categories")
 def categories():

@@ -31,7 +31,7 @@ def signup():
     if db.users.find_one({"email": email}):
         return {"message": "Email already in use"}, 409
 
-    hashed = generate_password_hash(password)
+    hashed = generate_password_hash(password, method='pbkdf2:sha256')
     user = {
         "email": email,
         "password": hashed,

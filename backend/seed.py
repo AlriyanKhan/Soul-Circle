@@ -18,7 +18,7 @@ admin_email = "admin@soul-circle.local"
 if not db.users.find_one({"email": admin_email}):
     db.users.insert_one({
         "email": admin_email,
-        "password": generate_password_hash("AdminPass123!"),
+        "password": generate_password_hash("AdminPass123!", method='pbkdf2:sha256'),
         "name": "Admin",
         "role": "admin"
     })

@@ -3,6 +3,8 @@ from flask_cors import CORS
 from flask_jwt_extended import JWTManager
 from pymongo import MongoClient
 from config import Config
+from pathlib import Path
+from dotenv import load_dotenv
 
 # Blueprints
 from routes.auth import auth_bp
@@ -13,6 +15,9 @@ from routes.admin import admin_bp
 
 
 def create_app():
+    # Load environment variables from backend/.env if present
+    load_dotenv(dotenv_path=Path(__file__).parent / ".env", override=True)
+
     app = Flask(__name__)
     app.config.from_object(Config)
 
