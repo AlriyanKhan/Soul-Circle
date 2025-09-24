@@ -20,8 +20,8 @@ export default function Forum() {
 
   useEffect(() => { load() }, [current])
 
-  async function createPost({ title, content, category }) {
-    await api.post('/api/forum/posts', { title, content, category })
+async function createPost({ title, content, category, anonymous }) {
+    await api.post('/api/forum/posts', { title, content, category, anonymous })
     load()
   }
   async function like(id) { await api.post(`/api/forum/posts/${id}/like`); load() }

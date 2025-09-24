@@ -4,6 +4,7 @@ export default function CreatePostModal({ onCreate }) {
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
   const [category, setCategory] = useState('general')
+  const [anonymous, setAnonymous] = useState(false)
 
   return (
     <div style={{ border: '1px dashed #aaa', padding: 12, borderRadius: 8, marginBottom: 16 }}>
@@ -22,7 +23,11 @@ export default function CreatePostModal({ onCreate }) {
         <option value="self-care">self-care</option>
       </select>
       <br />
-      <button onClick={() => onCreate({ title, content, category })}>Post</button>
+      <label>
+        <input type="checkbox" checked={anonymous} onChange={e => setAnonymous(e.target.checked)} /> Post anonymously
+      </label>
+      <br />
+      <button onClick={() => onCreate({ title, content, category, anonymous })}>Post</button>
     </div>
   )
 }
