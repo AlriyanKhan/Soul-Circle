@@ -10,6 +10,7 @@ from dash import Dash, html, dcc, Input, Output, State, callback_context
 from dash.dependencies import ALL
 import plotly.express as px
 from bson import ObjectId
+from typing import Optional
 
 # ----------------------
 # Config / Helpers
@@ -130,14 +131,14 @@ def count_posts(since_dt: datetime):
     return db.posts.count_documents(q)
 
 
-def tests_taken(since_dt: datetime, test_type: str | None = None):
+def tests_taken(since_dt: datetime, test_type: Optional[str] = None):
     q = {"created_at": {"$gte": since_dt.isoformat()}}
     if test_type:
         q["test_type"] = test_type
     return db.test_results.count_documents(q)
 
 
-def average_score(since_dt: datetime, test_type: str | None = None):
+def average_score(since_dt: datetime, test_type: Optional[str] = None):
     q = {"created_at": {"$gte": since_dt.isoformat()}}
     if test_type:
         q["test_type"] = test_type
