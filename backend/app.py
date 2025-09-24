@@ -12,6 +12,7 @@ from routes.forum import forum_bp
 from routes.resources import resources_bp
 from routes.tests import tests_bp
 from routes.admin import admin_bp
+from routes.consultant import consultant_bp
 
 
 def create_app():
@@ -43,6 +44,7 @@ def create_app():
     app.register_blueprint(resources_bp, url_prefix="/api/resources")
     app.register_blueprint(tests_bp, url_prefix="/api/tests")
     app.register_blueprint(admin_bp, url_prefix="/api/admin")
+    app.register_blueprint(consultant_bp, url_prefix="/api/consultant")
 
     @app.get("/api/health")
     def health():

@@ -57,3 +57,24 @@ def tests_analytics():
         s = row["_id"]["severity"]
         data.setdefault(t, {})[s] = row["count"]
     return {"analytics": data}
+
+
+@admin_bp.post("/consultant")
+@jwt_required()
+def set_consultant():
+    if not require_admin():
+        return {"message": "Admin only"}, 403
+    db = current_app.config["DB"]
+    data = current_app.request.get_json() if hasattr(current_app, 'request') else None
+    # Use Flask request directly
+    from flask import request as _request
+    data = _request.get_json() or {}
+    doc = {
+        "name": data.get("name", ""),
+        "email": data.get("email", ""),
+        "phone": data.get("phone", ""),
+        "officeHours": data.get("officeHours", ""),
+        "bookingUrl": data.get("bookingUrl", "")
+    }
+    db.consultant.update_one({}, {"$set": doc}, upsert=True)
+    return {"consultant": doc}

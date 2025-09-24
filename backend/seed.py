@@ -32,4 +32,14 @@ resources = [
 for r in resources:
     db.resources.insert_one(r)
 
-print("Seeded resources and admin user.")
+# Consultant (upsert a placeholder if not present)
+if not db.consultant.find_one({}):
+    db.consultant.insert_one({
+        "name": "University Psychological Consultant",
+        "email": "counselor@university.local",
+        "phone": "+1 (000) 000-0000",
+        "officeHours": "Mon–Fri 9:00–17:00",
+        "bookingUrl": ""
+    })
+
+print("Seeded resources, admin user, and consultant info.")
