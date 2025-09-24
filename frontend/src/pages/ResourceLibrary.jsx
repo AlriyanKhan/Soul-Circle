@@ -1,30 +1,28 @@
 import React, { useEffect, useState } from 'react'
-import { api } from '../services/api'
 import CategoryCard from '../components/library/CategoryCard'
 import ResourceCard from '../components/library/ResourceCard'
+import { resources as staticResources } from '../data/resources'
 
 export default function ResourceLibrary() {
-  const [resources, setResources] = useState([])
-  const [category, setCategory] = useState('')
+  const [tab, setTab] = useState('books')
 
-  async function load() {
-    const res = await api.get('/api/resources', { params: { category: category || undefined } })
-    setResources(res.data.resources)
-  }
+  const cats = [
+    { key: 'books', label: 'Books (Self-Help & Motivation)' },
+    { key: 'videos', label: 'Videos (Self-Help & Motivation)' },
+  ]
 
-  useEffect(() => { load() }, [category])
-
-  const cats = ['mindfulness', 'anxiety', 'self-care', 'depression', 'therapy']
+  const list = tab === 'books' ? staticResources.books : staticResources.videos
 
   return (
     <div>
       <h2>Resource Library</h2>
-      <div style={{ display: 'flex', gap: 12, marginBottom: 12 }}>
-        {cats.map(c => <CategoryCard key={c} name={c} onClick={setCategory} />)}
-        <button onClick={() => setCategory('')}>All</button>
+      <div style={{ display: 'flex', gap: 12, marginBottom: 12, flexWrap: 'wrap' }}>
+        {cats.map(c => (
+          <button key={c.key} onClick={() => setTab(c.key)} disabled={tab === c.key}>{c.label}</button>
+        ))}
       </div>
       <div style={{ display: 'grid', gap: 12 }}>
-        {resources.map(r => <ResourceCard key={r.id} item={r} />)}
+        {list.map((r, idx) => <ResourceCard key={idx} item={r} />)}
       </div>
     </div>
   )
