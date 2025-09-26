@@ -1,13 +1,16 @@
-import React from 'react'
+import React from 'react';
+import '../../styles/ResourceCard.css'; // Import the new CSS
 
 export default function ResourceCard({ item }) {
-  const byline = item.author || item.speaker || ''
+  const byline = item.author || item.speaker || '';
   return (
-    <div style={{ border: '1px solid #ddd', borderRadius: 8, padding: 12 }}>
-      <h3 style={{ marginTop: 0 }}>{item.title}</h3>
-      {byline && <p style={{ marginTop: 0 }}><small>{byline}</small></p>}
-      {item.description && <p>{item.description}</p>}
-      <a href={item.url} target="_blank" rel="noreferrer">Open</a>
+    <div className="resource-card">
+      <h3>{item.title}</h3>
+      {byline && <p className="resource-byline"><small>By: {byline}</small></p>}
+      {item.description && <p className="resource-description">{item.description}</p>}
+      <a className="resource-link" href={item.url} target="_blank" rel="noreferrer">
+        Open Resource
+      </a>
     </div>
-  )
+  );
 }
