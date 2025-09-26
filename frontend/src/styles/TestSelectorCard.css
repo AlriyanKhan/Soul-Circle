@@ -1,0 +1,27 @@
+/* src/styles/TestSelectorCard.css */
+.test-selector-card {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 1.5rem;
+  cursor: pointer;
+  background-color: var(--card-background);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.test-selector-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-color: var(--primary-color);
+}
+
+.test-selector-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+.test-selector-card p {
+  margin: 0;
+  color: #666;
+}

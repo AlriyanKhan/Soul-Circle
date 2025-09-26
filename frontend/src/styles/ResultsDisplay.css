@@ -1,0 +1,46 @@
+/* src/styles/ResultsDisplay.css */
+.results-display {
+  border: 1px solid #4caf50;
+  border-radius: 12px;
+  padding: 2rem;
+  background-color: #f4fff5;
+}
+
+.results-display h3 {
+  font-size: 1.8rem;
+  color: #2e7d32;
+  margin-top: 0;
+}
+
+.results-summary p {
+  font-size: 1.1rem;
+}
+
+.suggested-resources {
+  margin-top: 2rem;
+}
+
+.suggested-resources h4 {
+  font-size: 1.3rem;
+}
+
+.suggested-resources ul {
+  padding-left: 20px;
+}
+
+.suggested-resources a {
+  color: var(--primary-color);
+}
+
+.consultant-contact {
+  margin-top: 2rem;
+  border-top: 1px dashed #9ccc9c;
+  padding-top: 1.5rem;
+}
+
+.consultant-details {
+  margin-top: 1rem;
+  background: #e8f5e9;
+  padding: 1rem;
+  border-radius: 8px;
+}
