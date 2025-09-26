@@ -1,0 +1,89 @@
+/* src/styles/PostPage.css */
+
+.post-page-container {
+  padding: 2rem 3rem;
+}
+
+/* --- Main Post Styling --- */
+.post-header {
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 2rem;
+}
+
+.post-title {
+  font-size: 2.5rem;
+  color: var(--text-color);
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.post-body {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #333;
+}
+
+.post-category {
+  display: inline-block;
+  background-color: #f0f0f0;
+  padding: 4px 10px;
+  border-radius: 15px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* --- Replies Section Styling --- */
+.replies-section h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+/* --- Reply Tree & Individual Reply Styling --- */
+.reply-tree {
+  border-left: 2px solid #e0e0e0;
+  margin-left: 1rem;
+  padding-left: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.reply-content {
+  margin-top: 0;
+  color: #444;
+}
+
+.reply-meta {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.reply-meta button {
+  background: none;
+  border: 1px solid #ccc;
+  color: #555;
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.reply-meta button:hover {
+  background-color: #f0f0f0;
+}
+
+/* --- Add Reply Form Styling --- */
+.add-reply-form {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background-color: #f9f9f9;
+}
+
+.add-reply-form h4 {
+  margin-top: 0;
+  font-size: 1.3rem;
+}
