@@ -1,0 +1,11 @@
+/* src/styles/CategoryFilter.css */
+.category-filter {
+  padding: 10px 16px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: white;
+  color: var(--text-color);
+  cursor: pointer;
+  max-width: 300px;
+}

@@ -1,21 +1,30 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import '../../styles/PostCard.css';
 
-export default function PostCard({ post, onLike, onUpvote, onReport, onReply }) {
-  const authorLabel = post.anonymous ? 'Anonymous' : (post.authorName || 'Member')
+export default function PostCard({ post }) {
+  const authorLabel = post.anonymous ? 'Anonymous' : (post.authorName || 'Member');
+
+  // These functions would be passed as props if they need to trigger a list refresh
+  const onLike = (id) => console.log('Liking post', id);
+  const onUpvote = (id) => console.log('Upvoting post', id);
+  const onReport = (id) => console.log('Reporting post', id);
+
   return (
-    <div style={{ border: '1px solid #ddd', borderRadius: 8, padding: 12, marginBottom: 12 }}>
-      <h3 style={{ margin: '0 0 8px 0' }}><Link to={`/posts/${post.id}`}>{post.title}</Link></h3>
-      <p>{post.content}</p>
-      <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
+    <div className="post-card">
+      <h3><Link to={`/posts/${post.id}`}>{post.title}</Link></h3>
+      <div className="post-meta">
         <small>By: {authorLabel}</small>
         <small>Category: {post.category}</small>
-        <button onClick={() => onLike(post.id)}>Like ({post.likes || 0})</button>
-        <button onClick={() => onUpvote(post.id)}>Support ({post.upvotes || 0})</button>
-        <button onClick={() => onReport(post.id)}>Report</button>
-        <Link to={`/posts/${post.id}`}>Reply</Link>
-        {post.flagged && <span style={{ color: 'red' }}>Flagged</span>}
+      </div>
+      <p className="post-content">{post.content}</p>
+      <div className="post-actions">
+        <button className="btn-action" onClick={() => onLike(post.id)}>Like ({post.likes || 0})</button>
+        <button className="btn-action" onClick={() => onUpvote(post.id)}>Support ({post.upvotes || 0})</button>
+        <button className="btn-action" onClick={() => onReport(post.id)}>Report</button>
+        <Link className="reply-link" to={`/posts/${post.id}`}>Reply</Link>
+        {post.flagged && <span className="flagged-status">Flagged</span>}
       </div>
     </div>
-  )
+  );
 }

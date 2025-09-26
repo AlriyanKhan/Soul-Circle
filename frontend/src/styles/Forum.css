@@ -1,0 +1,24 @@
+/* src/styles/Forum.css */
+.forum-container {
+  padding: 2rem 3rem;
+}
+
+.forum-container h2 {
+  font-size: 2.5rem;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
+.forum-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.post-feed {
+  display: grid;
+  gap: 1.5rem;
+}

@@ -1,0 +1,71 @@
+/* src/styles/PostCard.css */
+.post-card {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 1.5rem;
+  background-color: var(--card-background);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.post-card h3 {
+  margin: 0 0 8px 0;
+}
+
+.post-card h3 a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 1.4rem;
+}
+
+.post-card h3 a:hover {
+  color: var(--primary-color);
+}
+
+.post-card .post-content {
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.post-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+  border-top: 1px solid #eee;
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+
+.post-meta {
+  display: flex;
+  gap: 1rem;
+  color: #777;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.post-actions .btn-action {
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.post-actions .btn-action:hover {
+  background-color: #e0e0e0;
+}
+
+.post-actions .reply-link {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.flagged-status {
+  color: #d32f2f;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
