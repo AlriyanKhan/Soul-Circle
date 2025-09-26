@@ -1,0 +1,16 @@
+/* src/styles/App.css */
+
+.app-layout {
+  display: flex;
+  /* CHANGE: Set the height of the main layout area to be the full viewport height minus the header.
+     This is crucial for containing the content and preventing the whole page from scrolling. */
+  height: calc(100vh - 75px);
+}
+
+/* This is the main content area to the right of the sidebar */
+.main-content {
+  flex-grow: 1; /* This makes it take up all remaining width */
+  width: 100%;
+  /* CHANGE: This is the key. It makes ONLY this area scrollable if its content is too long. */
+  overflow-y: auto;
+}

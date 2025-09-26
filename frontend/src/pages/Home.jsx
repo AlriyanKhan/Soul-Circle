@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { api } from '../services/api'
 import ConsultantInfoModal from '../components/consultant/ConsultantInfoModal'
+import '../styles/Home.css';
 
 export default function Home() {
   const [showModal, setShowModal] = useState(false)

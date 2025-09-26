@@ -1,0 +1,11 @@
+/* src/styles/Footer.css */
+
+.footer {
+  padding: 1.5rem 2rem;
+  background-color: var(--card-background);
+  border-top: 1px solid #e0e0e0;
+  text-align: center;
+  color: #888;
+  font-size: 1.125rem;
+  margin-top: auto; /* Pushes the footer to the bottom in a flex container */
+}

@@ -1,4 +1,5 @@
 import React from 'react'
+import '../../styles/ConsultantInfoModal.css';
 
 export default function ConsultantInfoModal({ open, onClose, consultant }) {
   if (!open) return null

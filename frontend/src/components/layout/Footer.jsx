@@ -1,8 +1,9 @@
 import React from 'react'
+import '../../styles/Footer.css'; 
 
 export default function Footer() {
   return (
-    <footer style={{ padding: '12px 16px', borderTop: '1px solid #eee' }}>
+    <footer className="footer">
       <small>© {new Date().getFullYear()} SOUL-CIRCLE</small>
     </footer>
   )

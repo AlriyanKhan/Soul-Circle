@@ -14,35 +14,56 @@ import Profile from './pages/Profile'
 import PostPage from './pages/PostPage'
 import NotFound from './pages/NotFound'
 import ProtectedRoute from './components/auth/ProtectedRoute'
+import './styles/index.css';
+// We will use the App.css from the previous step for the main layout
+import './styles/App.css'; 
 
-function Layout({ children }) {
+// CHANGED: Renamed 'Layout' to 'MainLayout' for clarity.
+// This layout is ONLY for pages that need the sidebar, header, and footer.
+function MainLayout({ children }) {
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: '240px 1fr', minHeight: '100vh' }}>
-      <Sidebar />
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <Header />
-        <main style={{ flex: 1, padding: '16px' }}>{children}</main>
-        <Footer />
+    <>
+      {/* The sticky header now lives outside the flex container */}
+      <Header />
+      <div className="app-layout"> {/* This class comes from App.css */}
+        <Sidebar />
+        <div className="main-content"> {/* This class also comes from App.css */}
+          <main style={{ flex: 1, padding: '16px' }}>{children}</main>
+          <Footer />
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 
 export default function App() {
   return (
-    <Layout>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/forum" element={<Forum />} />
-        <Route path="/resources" element={<ResourceLibrary />} />
-        <Route path="/tests" element={<ScreeningTests />} />
-        <Route path="/admin" element={<ProtectedRoute><Admin /></ProtectedRoute>} />
-        <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
-        <Route path="/posts/:id" element={<PostPage />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </Layout>
+    // REMOVED: The old <Layout> wrapper is gone from here.
+    // Instead, we will wrap specific routes with the MainLayout.
+    <Routes>
+      {/* --- Routes WITHOUT the main layout --- */}
+      {/* These routes will now appear on their own, without the sidebar/header */}
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
+
+      {/* --- Routes WITH the main layout --- */}
+      {/* All the routes that need the sidebar and header are nested here */}
+      <Route path="/" element={<MainLayout><Home /></MainLayout>} />
+      <Route path="/forum" element={<MainLayout><Forum /></MainLayout>} />
+      <Route path="/resources" element={<MainLayout><ResourceLibrary /></MainLayout>} />
+      <Route path="/tests" element={<MainLayout><ScreeningTests /></MainLayout>} />
+      <Route path="/posts/:id" element={<MainLayout><PostPage /></MainLayout>} />
+      <Route
+        path="/admin"
+        element={<MainLayout><ProtectedRoute><Admin /></ProtectedRoute></MainLayout>}
+      />
+      <Route
+        path="/profile"
+        element={<MainLayout><ProtectedRoute><Profile /></ProtectedRoute></MainLayout>}
+      />
+      
+      {/* The "Not Found" page can be styled differently or use the main layout */}
+      <Route path="*" element={<MainLayout><NotFound /></MainLayout>} />
+    </Routes>
   )
 }
