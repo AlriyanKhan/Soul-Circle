@@ -2,13 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../../styles/PostCard.css';
 
-export default function PostCard({ post }) {
+// The functions onLike, onUpvote, and onReport are now correctly received from props
+export default function PostCard({ post, onLike, onUpvote, onReport }) {
   const authorLabel = post.anonymous ? 'Anonymous' : (post.authorName || 'Member');
 
-  // These functions would be passed as props if they need to trigger a list refresh
-  const onLike = (id) => console.log('Liking post', id);
-  const onUpvote = (id) => console.log('Upvoting post', id);
-  const onReport = (id) => console.log('Reporting post', id);
+  // The local dummy functions that were causing the bug have been removed.
 
   return (
     <div className="post-card">
@@ -19,10 +17,12 @@ export default function PostCard({ post }) {
       </div>
       <p className="post-content">{post.content}</p>
       <div className="post-actions">
+        {/* These buttons now call the functions passed down from the parent Forum component */}
         <button className="btn-action" onClick={() => onLike(post.id)}>Like ({post.likes || 0})</button>
         <button className="btn-action" onClick={() => onUpvote(post.id)}>Support ({post.upvotes || 0})</button>
         <button className="btn-action" onClick={() => onReport(post.id)}>Report</button>
         <Link className="reply-link" to={`/posts/${post.id}`}>Reply</Link>
+        {/* This will now display correctly when the post data updates */}
         {post.flagged && <span className="flagged-status">Flagged</span>}
       </div>
     </div>
