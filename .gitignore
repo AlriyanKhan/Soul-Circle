@@ -17,3 +17,6 @@ frontend/.vite/
 
 # Runtime PIDs
 *.pid
+
+admin_dashboard/.env
+backend/.env
