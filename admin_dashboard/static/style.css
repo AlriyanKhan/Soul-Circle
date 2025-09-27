@@ -1,0 +1,177 @@
+/* admin_dashboard/static/style.css */
+
+/* --- Global Styles & Variables --- */
+:root {
+  --primary-color: #2a9d8f;
+  --background-color: #f4fdfb;
+  --card-background: #ffffff;
+  --text-color: #264653;
+  --shadow-color: rgba(45, 55, 72, 0.08);
+  --border-color: #e8eef3;
+  --danger-color: #d32f2f;
+  --danger-background: #ffebee;
+  --ignore-color: #6c757d;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", sans-serif;
+  margin: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* --- Login Page Styling --- */
+.login-container {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+.login-card {
+  background: var(--card-background);
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px var(--shadow-color);
+  width: 360px;
+}
+.login-card h2 {
+  margin-top: 0;
+}
+.login-card label {
+  display: block;
+  margin: 8px 0 4px;
+  font-weight: 600;
+}
+.login-card input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+.login-card button {
+  width: 100%;
+  margin-top: 14px;
+  padding: 12px;
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.login-card .err {
+  color: var(--danger-color);
+  margin-top: 8px;
+}
+
+/* --- Main Dashboard Layout --- */
+.controls-row {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--card-background);
+  align-items: center;
+}
+.control-group {
+  width: 220px;
+}
+.control-group label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.logout-link {
+  margin-left: auto;
+}
+.logout-link a {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.kpi-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+
+.graph-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 1.5rem;
+  padding: 0 1.5rem;
+}
+
+.reports-section {
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+
+/* --- Component Styling --- */
+.kpi-card {
+  background: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px var(--shadow-color);
+}
+.kpi-card-title {
+  color: #666;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+.kpi-card-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+.graph-card {
+  background: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.reports-section h3 {
+  margin-top: 0;
+  font-size: 1.8rem;
+}
+
+/* --- Reports Table --- */
+.report-item {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 0;
+}
+.report-text-content {
+  flex: 1;
+}
+.report-text {
+  font-weight: 600;
+}
+.report-meta {
+  color: #666;
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+.report-actions button {
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.btn-delete {
+  background-color: var(--danger-color) !important;
+  margin-right: 8px;
+}
+.btn-ignore {
+  background-color: var(--ignore-color) !important;
+}
