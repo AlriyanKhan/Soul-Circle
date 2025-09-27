@@ -1,0 +1,138 @@
+/* src/styles/Profile.css */
+
+.profile-container {
+  padding: 2rem 3rem;
+}
+
+/* --- Header & User Info --- */
+.profile-header {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.profile-header h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.user-details p {
+  font-size: 1.1rem;
+  color: #333;
+  margin: 0.5rem 0;
+}
+
+/* --- Metrics Section --- */
+.profile-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.metric-card {
+  background-color: var(--card-background);
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.metric-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin: 0;
+}
+
+.metric-label {
+  font-size: 1rem;
+  color: #777;
+  margin: 0;
+}
+
+/* --- Tabs for Posts/Replies --- */
+.profile-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.tab-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: #777;
+  border-bottom: 3px solid transparent;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.tab-button:hover {
+  color: var(--primary-color);
+}
+
+.tab-button.active {
+  color: var(--primary-color);
+  border-bottom-color: var(--primary-color);
+}
+
+/* --- Activity List (Posts & Replies) --- */
+.activity-list {
+  /* CHANGED: This is now a responsive grid */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.activity-item {
+  /* CHANGED: Styled to be a card with a fixed height */
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 1.5rem;
+  background-color: var(--card-background);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* This pushes the link to the bottom */
+  min-height: 80px; /* Gives cards a consistent minimum height */
+}
+
+/* NEW: A container for the main text content of the card */
+.activity-item-content {
+  flex-grow: 1;
+}
+
+.activity-item a.post-title-link {
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.activity-item a.post-title-link:hover {
+  color: var(--primary-color);
+}
+
+.activity-item .reply-context {
+  font-style: italic;
+  color: #666;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  /* NEW: Use ellipsis to trim long replies so they fit in the card */
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Show up to 3 lines of text */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* NEW: Styles for the "View Post" link at the bottom of each card */
+.activity-item .view-post-link {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-top: 1rem; /* Creates space between the content and the link */
+}

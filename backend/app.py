@@ -13,7 +13,7 @@ from routes.resources import resources_bp
 from routes.tests import tests_bp
 from routes.admin import admin_bp
 from routes.consultant import consultant_bp
-
+from routes.user_routes import user_api # <--- LINE 1: I ADDED THIS IMPORT
 
 def create_app():
     # Load environment variables from backend/.env if present
@@ -45,6 +45,8 @@ def create_app():
     app.register_blueprint(tests_bp, url_prefix="/api/tests")
     app.register_blueprint(admin_bp, url_prefix="/api/admin")
     app.register_blueprint(consultant_bp, url_prefix="/api/consultant")
+    app.register_blueprint(user_api, url_prefix="/api/user") # <--- LINE 2: I ADDED THIS REGISTRATION
+    
 
     @app.get("/api/health")
     def health():
