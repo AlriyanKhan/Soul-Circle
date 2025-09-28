@@ -3,25 +3,24 @@
 /* --- Global Styles & Variables --- */
 :root {
   --primary-color: #2a9d8f;
-  --background-color: #f4fdfb;
+  --background-color: #f0f2f5; /* CHANGED: Darker background for better contrast */
   --card-background: #ffffff;
   --text-color: #264653;
   --shadow-color: rgba(45, 55, 72, 0.08);
   --border-color: #e8eef3;
   --danger-color: #d32f2f;
-  --danger-background: #ffebee;
   --ignore-color: #6c757d;
 }
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", sans-serif;
+    sans-serif;
   margin: 0;
   background-color: var(--background-color);
   color: var(--text-color);
 }
 
-/* --- Login Page Styling --- */
+/* --- Login Page Styling (Unchanged) --- */
 .login-container {
   display: grid;
   place-items: center;
@@ -65,52 +64,86 @@ body {
   margin-top: 8px;
 }
 
-/* --- Main Dashboard Layout --- */
-.controls-row {
+/* --- NEW: Header Styling --- */
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background-color: var(--card-background);
+  border-bottom: 1px solid var(--border-color);
+}
+.header-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin: 0;
+}
+.header-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #777;
+  border-left: 1px solid var(--border-color);
+  padding-left: 1rem;
+  margin: 0;
+}
+.logout-button {
+  margin-left: auto;
+  text-decoration: none;
+  background-color: var(--primary-color);
+  color: white !important;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+.logout-button:hover {
+  background-color: #238a7e;
+}
+
+/* --- NEW: Filter Bar Styling --- */
+.filter-bar {
   display: flex;
   gap: 1.5rem;
   padding: 1rem 1.5rem;
   border-bottom: 1px solid var(--border-color);
-  background-color: var(--card-background);
-  align-items: center;
+  background-color: #fcfcfc;
+  align-items: flex-end;
 }
-.control-group {
-  width: 220px;
-}
-.control-group label {
+.filter-group label {
   font-weight: 600;
   font-size: 0.9rem;
+  display: block;
+  margin-bottom: 0.5rem;
 }
-.logout-link {
-  margin-left: auto;
-}
-.logout-link a {
-  text-decoration: none;
-  color: var(--primary-color);
-  font-weight: 600;
+/* This targets the DatePickerRange component */
+.DateInput_input,
+.DateInput_input_1 {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", sans-serif;
+  font-size: 1rem !important;
+  padding: 8px 12px !important;
 }
 
+/* --- Dashboard Component Styling --- */
+.kpi-row,
+.graph-row,
+.reports-section {
+  padding: 1.5rem;
+}
 .kpi-row {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
-  padding: 1.5rem;
 }
-
 .graph-row {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
   gap: 1.5rem;
-  padding: 0 1.5rem;
 }
 
-.reports-section {
-  padding: 1.5rem;
-  margin-top: 1rem;
-}
-
-/* --- Component Styling --- */
-.kpi-card {
+.kpi-card,
+.graph-card {
   background: var(--card-background);
   border: 1px solid var(--border-color);
   border-radius: 12px;
@@ -128,20 +161,10 @@ body {
   color: var(--text-color);
 }
 
-.graph-card {
-  background: var(--card-background);
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  padding: 1rem;
-  box-shadow: 0 4px 12px var(--shadow-color);
-}
-
 .reports-section h3 {
   margin-top: 0;
   font-size: 1.8rem;
 }
-
-/* --- Reports Table --- */
 .report-item {
   display: flex;
   gap: 1rem;
